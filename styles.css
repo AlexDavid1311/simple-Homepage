@@ -1,36 +1,86 @@
+/* Header container */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed; /* Ensures the header stays fixed */
+    top: 0; /* Stick to the top of the page */
+    left: 0; /* Stick to the left of the page */
+    /* width: 20%;
+    height: 80px; Make the header span the entire width */
+    z-index: 1000; /* Ensures it stays above other content */
+    background-color: #fff; /* Background color for the header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
+}
+
+/* Logo container styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spacing between the logo and text */
+}
+
+/* Logo image styling */
+.logo {
+    height: 58px; /* Adjust logo height */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures proper scaling */
+}
+
+/* Brand name styling */
+.brand-name {
+    font-size: 1.5rem; /* Adjust font size for brand name */
+    font-weight: bold;
+    color: #007bff; /* Matches the theme color */
+    text-transform: uppercase; /* Optional: make text uppercase */
+}
+
 /* Navbar Customizations */
 .navbar {
     width: 100%;
-    height: 80px; /* Ensures navbar stretches the full width of the screen */
-}
-
-.navbar-light {
-    background-color: white; /* White background color for the navbar */
+    height: 80px; /* Navbar height */
+    position: fixed; /* Ensures the navbar stays fixed */
+    top: 0px; /* Place the navbar below the header */
+    left: 0;
+    z-index: 999; /* Ensure it stays below the header but above content */
+    background-color: white; /* Background color for the navbar */
     border-bottom: 1px solid #ccc; /* Optional: Adds a subtle border at the bottom */
+    display: flex;
+    font-weight: bolder;
+    align-items: center;
+    padding: 0 20px; /* Padding inside the navbar */
+    box-shadow: 0 2px 5px rgba(104, 68, 68, 0.1); /* Subtle shadow for depth */
 }
 
-.navbar .navbar-brand {
-    font-weight: bold; /* Make the brand name bold */
-}
-
+/* Navbar links styling */
 .navbar .nav-item .nav-link {
-    color: #333; /* Change the default color of the links */
+    color: #484747; /* Default color of the links */
     font-size: 16px; /* Adjust the font size of the links */
+    text-decoration: none; /* Remove underline */
+    margin: 0 15px; /* Space between links */
+    transition: color 0.3s ease; /* Smooth transition for hover */
 }
 
 .navbar .nav-item .nav-link:hover {
     color: #007bff; /* Change link color on hover */
 }
 
-/* Optional: For a wider navbar */
+/* Optional: Wider navbar styling */
 .navbar-expand-lg {
     max-width: 100vw; /* Allow the navbar to take the full width of the viewport */
     padding: 0 50px; /* Add horizontal padding for extra space */
 }
 
+/* Navbar toggle button for mobile */
 .navbar-toggler {
     border-color: #007bff; /* Change the toggle button border color */
 }
+
+/* Spacing for page content to avoid overlap */
+.page-content {
+    margin-top: 140px; /* Adjust this to the combined height of the header and navbar */
+}
+
 
 
 /* General Hero Section */
@@ -96,6 +146,7 @@
 
 .hero-section p {
     font-size: 1.2rem;
+    font-weight: bold;
     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
 }
 
@@ -146,6 +197,8 @@
 .bg-image p {
     font-size: 1.2rem;
     line-height: 1.6;
+    font-weight: bolder;
+
 }
 
 /* Main Section Heading */
@@ -215,43 +268,61 @@
     color: #393379;
 }
 
-
-
 /* India Updates Section */
 .india-updates {
-    height: 70vh;
+    height: 70vh; /* Adjust the height of the section */
     width: 25%;
     background-color: #05ed0598;
-    /* padding: 20px; */
     margin-left: 50px;
-    
     color: #0f0f0f;
+    padding: 20px; /* Add padding for better spacing */
+    border-radius: 10px; /* Optional: rounded corners for a nicer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    overflow: hidden; /* Hide overflow, as we'll animate the list inside */
 }
 
-.india-updates h2 {
+/* Heading styling */
+.indiaUpdates h2 {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 15px;
     color: #63845a;
-    
 }
 
+/* List styling */
 .india-updates ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    animation: scroll-up 30s linear infinite; /* Apply the animation */
+    padding-top: 15px; /* Leave space for the heading */
+    height: calc(100% - 50px); /* Ensure scrolling happens below the heading */
 }
 
+/* List item styling */
 .india-updates ul li {
     margin-bottom: 10px;
     line-height: 1.5;
 }
 
+/* Animation for auto-scrolling */
+@keyframes scroll-up {
+    0% {
+        transform: translateY(0); /* Start from just below the heading */
+    }
+    100% {
+        transform: translateY(-100%); /* Scroll through the entire list */
+    }
+}
+
+
+
+
 /* View All Button */
 .view-all-container {
      position: absolute;
     /* justify-content: center;  */
-    margin-top: -12%;
+    margin-top: -22%;
     margin-left:61%;
 }
 
@@ -339,3 +410,5 @@ footer {
     padding: 15px;
     font-weight: bold;
 }
+
+
