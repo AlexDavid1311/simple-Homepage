@@ -16,7 +16,7 @@
 /* Logo container styling */
 .logo-container {
     display: flex;
-    align-items: center;
+    align-items: center;    
     gap: 10px; /* Spacing between the logo and text */
 }
 
@@ -287,6 +287,7 @@
     font-weight: bold;
     margin-bottom: 15px;
     color: #63845a;
+    overflow: hidden;
 }
 
 /* List styling */
@@ -294,14 +295,30 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    animation: scroll-up 30s linear infinite; /* Apply the animation */
-    padding-top: 15px; /* Leave space for the heading */
-    height: calc(100% - 50px); /* Ensure scrolling happens below the heading */
+    animation: scroll-up 20s linear infinite; /* Apply the animation */
+     padding-top: 15px; /*Leave space for the heading */
+    height: calc(50% - 50px); /* Ensure scrolling happens below the heading */
+}
+.updates-container {
+    height: 300px; /* Adjust as needed */
+    overflow: hidden; /* Prevent text from flowing outside */
+    position: relative; /* Ensures text animation stays inside */
+}
+.updates-text {
+    font-weight: lighter;
+    position: absolute;
+    white-space: nowrap; /* Ensures text stays on one line */
+    animation: scrollText 30s linear infinite; /* Adjust duration as needed */
+}
+
+@keyframes scrollText {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(-100%); }
 }
 
 /* List item styling */
 .india-updates ul li {
-    margin-bottom: 10px;
+    margin-bottom: 1px;
     line-height: 1.5;
 }
 
@@ -310,6 +327,7 @@
     0% {
         transform: translateY(0); /* Start from just below the heading */
     }
+
     100% {
         transform: translateY(-100%); /* Scroll through the entire list */
     }
